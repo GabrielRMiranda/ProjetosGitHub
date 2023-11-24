@@ -1,70 +1,61 @@
 class Carro{
-    Marca;
-    Modelo;
-    Cor;
-    GastoMedio;
+    constructor(marca, modelo, cor, gastoMedio) {
+        this.Marca = marca;
+        this.Modelo = modelo;
+        this.Cor = cor;
+        this.GastoMedio = gastoMedio;
+    }
 
     Informativo(){
         console.log("Marca:",this.Marca);
         console.log("Marca:",this.Modelo);
         console.log("Cor:",this.Cor);
-        console.log("Gasto Médio:",this.GastoMedio);
+        console.log("Gasto Médio:",this.GastoMedio.toFixed(2));
     }
 }
 
 const Combustivel = 5.41;
 
-const C1 = new Carro
-C1.Marca = 'Fiat';
-C1.Modelo = 'Palio'
-C1.Cor = 'Azul';
-C1.GastoMedio = 8.6;
-
-const C2 = new Carro
-C2.Marca = 'Chevrolet';
-C2.Modelo = 'Onix';
-C2.Cor = 'Vermelho';
-C2.GastoMedio = 12.9;
-
-const C3 = new Carro
-C3.Marca = 'Ford';
-C3.Modelo = 'Focus Titanium';
-C3.Cor = 'Branco';
-C3.GastoMedio = 6.7;
-
-const C4 = new Carro
-C4.Marca = 'Volkswagem';
-C4.Modelo = 'Jetta';
-C4.Cor = 'Preto';
-C4.GastoMedio = 10.9;
+const C1 = new Carro('Fiat', 'Palio', 'Azul', 8.6);
+const C2 = new Carro('Chevrolet', 'Onix', 'Vermelho', 12.9);
+const C3 = new Carro('Ford', 'Focus Titanium', 'Branco', 6.7);
+const C4 = new Carro('Volkswagen', 'Jetta', 'Preto', 10.9);
 
 function Consumo(C1,C2,C3,C4){
-    let ConsumoComb1 = Combustivel * C1.GastoMedio;
-    let ConsumoComb2 = Combustivel * C2.GastoMedio;
-    let ConsumoComb3 = Combustivel * C3.GastoMedio;
-    let ConsumoComb4 = Combustivel * C4.GastoMedio;
+    
+    const ConsumoComb = Combustivel * C1.GastoMedio;
+    const ConsumoComb2 = Combustivel * C2.GastoMedio;
+    const ConsumoComb3 = Combustivel * C3.GastoMedio;
+    const ConsumoComb4 = Combustivel * C4.GastoMedio;
 
     return{
-        C1: ConsumoComb1,
-        C2: ConsumoComb1,
-        C3: ConsumoComb1,
-        C4: ConsumoComb1,
+        C1: ConsumoComb.toFixed(2),
+        C2: ConsumoComb2.toFixed(2),
+        C3: ConsumoComb3.toFixed(2),
+        C4: ConsumoComb4.toFixed(2),
     }
 }    
 
 
-function ComparaConsumo(){
+function ComparaConsumo(C1,C2,C3,C4){
 
     const Consumos = Consumo(C1,C2,C3,C4);
 
-    if(ConsumoComb1 > ConsumoComb2 && ConsumoComb1 > ConsumoComb2 && ConsumoComb1 > ConsumoComb4){
-        console.log("O",C1.Modelo,"possuí um gasto maior de combustível ")
+    if (Consumos.C1 > Consumos.C2 && Consumos.C1 > Consumos.C3 && Consumos.C1 > Consumos.C4) {
+        console.log("O", C1.Modelo, "possui um gasto maior de combustível, sendo de R$",Consumos.C1);
+    } else if (Consumos.C2 > Consumos.C1 && Consumos.C2 > Consumos.C3 && Consumos.C2 > Consumos.C4) {
+        console.log("O", C2.Modelo, "possui um gasto maior de combustível, sendo de R$",Consumos.C2);
+    } else if (Consumos.C3 > Consumos.C1 && Consumos.C3 > Consumos.C2 && Consumos.C3 > Consumos.C4) {
+        console.log("O", C3.Modelo, "possui um gasto maior de combustível, sendo de R$",Consumos.C3);
+    } else if (Consumos.C4 > Consumos.C1 && Consumos.C4 > Consumos.C2 && Consumos.C4 > Consumos.C3) {
+        console.log("O", C4.Modelo, "possui um gasto maior de combustível, sendo de R$",Consumos.C4);
+    } else {
+        console.log("Os carros possuem o mesmo gasto de combustível!");
     }
-    
 }
 
 (function (){
 
-    console.log(Consumo(C1,C2,C3,C4))
+    ComparaConsumo(C1,C2,C3,C4);
 
 })()
