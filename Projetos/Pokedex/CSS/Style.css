@@ -1,0 +1,41 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    margin-top: auto;
+    color: #F4B400;
+    -webkit-text-stroke: 2px #12669f;
+}
+
+.content {
+    padding: 1rem;
+}
+
+
+.Pokemons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr
+}
+
+.Pokemons li {
+    margin: .5rem;
+    padding: 1rem;
+    background-color: #14A06F;
+    color: white;
+    border-radius: 1rem;
+    flex-direction: column;
+}
+
+ol.Pokemons li img{
+    border-style: none;
+    max-width: 100%;
+    margin: 60px;
+}
+
