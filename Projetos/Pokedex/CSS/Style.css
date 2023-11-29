@@ -15,27 +15,30 @@ h1{
     padding: 1rem;
 }
 
-
 .Pokemons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr
 }
 
-.Pokemons li {
-    margin: .5rem;
-    padding: 1rem;
-    background-color: #14A06F;
-    color: white;
-    border-radius: 1rem;
+
+.Pokemon {
+    display: flex;
     flex-direction: column;
+    margin: 2.5rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: #701198;
+    color:black;
 }
 
-ol.Pokemons li img{
+.Pokemons .detail img{
+    margin-left: 250px;
     border-style: none;
     max-width: 100%;
-    margin: 60px;
+    height: 200px;
+    padding-bottom: 2rem;
 }
 
